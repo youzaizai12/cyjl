@@ -38,17 +38,23 @@ Ollama (用于智能模式)
 
 安装步骤
 1. 克隆项目
-bash
+2. 
+
+RAG
+
 git clone <repository-url>
+
 cd cyjl
 
 3. 安装 Python 依赖（在自己的虚拟环境中，我的虚拟环境叫RAG）
    
 RAG
+
 pip install -r requirements.txt
 或手动安装：
 
 RAG
+
 pip install flask==2.3.0
 pip install flask-cors==4.0.0
 pip install langchain==0.1.0
@@ -130,15 +136,20 @@ Sentence-Transformers	文本向量化	BGE-large-zh-v1.5 模型
 Ollama	LLM服务	运行 Llama3 模型
 LangChain	框架集成	简化向量库操作
 核心算法
+
 1. 向量检索优化
+2. 
 python
 # 使用 FAISS 构建成语向量索引
 embedding = HuggingFaceEmbeddings(model_name="bge-large-zh-v1.5")
+
 vectorstore = FAISS.from_documents(documents, embedding)
 
 2. LLM 接龙策略
+3. 
 python
 # 智能提示词设计
+
 prompt = f"""
 你是成语接龙专家。请根据「{last_char}」字接一个四字成语。
 要求：
@@ -147,12 +158,14 @@ prompt = f"""
 3. 只输出成语本身
 """
 3. 传统匹配算法
+4. 
 python
 # 基于前缀的快速匹配
 candidates = [idiom for idiom in idioms 
               if idiom.startswith(last_char) 
               and idiom not in used_idioms]
 return random.choice(candidates) if candidates else None
+
 前端特性
 响应式设计：适配移动端和PC端
 
@@ -181,15 +194,19 @@ Content-Type: application/json
     "idiom": "一帆风顺",
     "use_ollama": true
 }
+
 认输
 http
 POST /api/surrender
+
 获取历史记录
 http
 GET /api/history
+
 清空历史记录
 http
 POST /api/clear_history
+
 检查 Ollama 状态
 http
 GET /api/ollama/status
@@ -222,29 +239,45 @@ LLM 调用优化
 
 🐛 常见问题
 Q: Ollama 连接失败？
+
 A: 检查 Ollama 服务是否运行：
 
 bash
+
 ollama serve
+
 ollama list  # 查看已安装模型（或者直接打开ollama看自己有哪些模型）
 
 Q: 向量库加载失败？
+
 A: 删除 faiss_idioms 文件夹，让程序重新构建：
 
 RAG
+
 rm -rf faiss_idioms
+
 python app.py
+
+
 Q: 成语文件找不到？
+
 A: 确保 idioms.txt 在项目根目录，格式正确（每行一个四字成语）
 
+
 Q: 历史记录不显示？
+
 A: 检查控制台错误信息，确保 game_history.json 文件可写
 
+
 Q: 端口被占用？
+
 A: 修改 cyjl.py 中的端口号：
 
 python
+
 app.run(debug=True, host='127.0.0.1', port=5001)  # 改为其他端口
+
+
 
 📈 未来改进
 多人联机对战模式
