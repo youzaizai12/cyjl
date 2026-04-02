@@ -39,7 +39,6 @@ Ollama (用于智能模式)
 安装步骤
 1. 克隆项目
 2. 
-
 RAG
 
 git clone <repository-url>
@@ -51,6 +50,7 @@ cd cyjl
 RAG
 
 pip install -r requirements.txt
+
 或手动安装：
 
 RAG
@@ -83,11 +83,13 @@ ollama pull llama3
 # 启动 Ollama 服务
 ollama serve
 
+
 5. 运行游戏(也可以直接在VScode或者pycharm里面直接运行，VS是Ctrl+Shift+P然后点击Python:选择解释器 选择自己的虚拟环境)
 
 RAG
 python cyjl.py
 访问 http://127.0.0.1:5000 开始游戏
+
 
 🎮 使用说明
 游戏规则
