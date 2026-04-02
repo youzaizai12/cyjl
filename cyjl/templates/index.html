@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>成语接龙 - AI智能对战版</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="game-header">
+            <h1>📖 成语接龙</h1>
+            <p class="subtitle">与AI对决，挑战你的成语库！</p>
+        </div>
+
+        <div class="game-content">
+            <!-- 游戏控制区 -->
+            <div class="game-controls">
+                <div class="controls-left">
+                    <button id="newGameBtn" class="btn btn-primary">🔄 新游戏</button>
+                    <div class="first-player-select">
+                        <span>先后手：</span>
+                        <select id="firstPlayerSelect">
+                            <option value="player">👤 我先手</option>
+                            <option value="ai">🤖 AI先手</option>
+                        </select>
+                    </div>
+                    <div class="ai-mode-select">
+                        <span>AI模式：</span>
+                        <select id="aiModeSelect">
+                            <option value="ollama">🧠 智能模式 (Ollama)</option>
+                            <option value="traditional">📚 传统模式 (规则匹配)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="turn-indicator" id="turnIndicator">
+                    <span class="turn-text">等待开始...</span>
+                </div>
+            </div>
+
+            <!-- 游戏主界面 -->
+            <div class="game-board">
+                <div class="current-idiom-section" id="currentIdiomSection" style="display: none;">
+                    <div class="label">当前成语</div>
+                    <div class="current-idiom" id="currentIdiom">---</div>
+                    <div class="next-char">下一个字：<span id="nextChar">---</span></div>
+                </div>
+
+                <div class="message-area" id="messageArea">
+                    <div class="message-item welcome">欢迎来到成语接龙！选择模式后点击"新游戏"开始。</div>
+                </div>
+
+                <div class="input-area" id="inputArea" style="display: none;">
+                    <div class="input-group">
+                        <input type="text" id="idiomInput" placeholder="请输入四字成语..." maxlength="4">
+                        <button id="submitBtn" class="btn btn-success">出招</button>
+                        <button id="surrenderBtn" class="btn btn-danger">🏳️ 认输</button>
+                    </div>
+                    <div class="input-hint">💡 提示：请输入四字成语，必须正确且未使用过 | 点击"认输"结束游戏</div>
+                </div>
+
+                <div class="used-idioms-section">
+                    <div class="label">📜 已使用的成语</div>
+                    <div class="used-idioms-list" id="usedIdiomsList">
+                        <div class="empty-message">暂无</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 历史记录区 -->
+            <div class="history-section">
+                <div class="history-header">
+                    <div class="label">📊 游戏历史记录</div>
+                    <button id="clearHistoryBtn" class="btn-clear">清空历史</button>
+                </div>
+                <div class="history-list" id="historyList">
+                    <div class="empty-message">暂无游戏记录</div>
+                </div>
+            </div>
+
+            <!-- 游戏结束弹窗 -->
+            <div id="gameOverModal" class="modal">
+                <div class="modal-content">
+                    <h2 id="gameOverTitle">游戏结束</h2>
+                    <p id="gameOverMessage">恭喜获胜！</p>
+                    <button id="playAgainBtn" class="btn btn-primary">再玩一局</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+</body>
+</html>

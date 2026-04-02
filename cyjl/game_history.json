@@ -1,0 +1,17 @@
+[
+  {
+    "game_id": "20260402183919514",
+    "timestamp": "2026-04-02 18:40:24",
+    "winner": "ai",
+    "total_moves": 4,
+    "first_player": "player",
+    "player_moves": [
+      "两袖清风",
+      "仆仆风尘"
+    ],
+    "ai_moves": [
+      "风尘仆仆",
+      "尘饭涂羹"
+    ]
+  }
+]
