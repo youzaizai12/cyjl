@@ -142,7 +142,7 @@ LangChain	框架集成	简化向量库操作
 1. 向量检索优化
 2. 
 python
-# 使用 FAISS 构建成语向量索引
+使用 FAISS 构建成语向量索引
 embedding = HuggingFaceEmbeddings(model_name="bge-large-zh-v1.5")
 
 vectorstore = FAISS.from_documents(documents, embedding)
@@ -150,7 +150,7 @@ vectorstore = FAISS.from_documents(documents, embedding)
 2. LLM 接龙策略
 3. 
 python
-# 智能提示词设计
+智能提示词设计
 
 prompt = f"""
 你是成语接龙专家。请根据「{last_char}」字接一个四字成语。
@@ -162,7 +162,7 @@ prompt = f"""
 3. 传统匹配算法
 4. 
 python
-# 基于前缀的快速匹配
+基于前缀的快速匹配
 candidates = [idiom for idiom in idioms 
               if idiom.startswith(last_char) 
               and idiom not in used_idioms]
