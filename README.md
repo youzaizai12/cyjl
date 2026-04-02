@@ -25,20 +25,8 @@
 <img width="870" height="648" alt="image" src="https://github.com/user-attachments/assets/78047268-bedc-4063-8cbd-96fec1e88d2b" />
 
 📁 项目结构
-text
-cyjl/
-├── cyjl.py                 # Flask 后端主程序
-├── idioms.txt             # 成语库文件（每行一个成语）
-├── requirements.txt       # Python 依赖包(我在anaconda prompt下载好了，所以没有这个文件,需要的自行下载)
-├── templates/
-│   └── index.html        # 前端页面
-├── static/
-│   ├── css/
-│   │   └── style.css     # 样式文件
-│   └── js/
-│       └── game.js       # 前端逻辑
-├── faiss_idioms/         # FAISS 向量库（自动生成）
-└── game_history.json     # 游戏历史记录（自动生成）
+<img width="671" height="505" alt="image" src="https://github.com/user-attachments/assets/e9ae6bb3-afeb-450e-a2f9-dd996b7217d7" />
+
 
 🚀 快速开始
 环境要求
